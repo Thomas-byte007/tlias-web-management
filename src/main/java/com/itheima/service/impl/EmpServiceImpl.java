@@ -34,9 +34,9 @@ public class EmpServiceImpl implements EmpService {
 
 
     @Override
-    public PageBean page(Integer page, Integer pageSize,String name, Short gender,LocalDate begin,LocalDate end) {
+    public PageBean page(Integer page, Integer pageSize, String name, Short gender, LocalDate begin, LocalDate end) {
         //1. 设置分页参数
-        PageHelper.startPage(page,pageSize);
+        PageHelper.startPage(page, pageSize);
 
         //2. 执行查询
         List<Emp> empList = empMapper.list(name, gender, begin, end);
@@ -48,7 +48,7 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Override
-    public void delete(List<Integer> ids) {
+    public void delete(List<Integer> ids){
         empMapper.delete(ids);
     }
 }

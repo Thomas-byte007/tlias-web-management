@@ -34,11 +34,12 @@ public class EmpController {
         return Result.success(pageBean);
     }
 
-
     @DeleteMapping("/{ids}")
     public Result delete(@PathVariable List<Integer> ids){
-        log.info("批量删除操作, ids:{}",ids);
+        log.info("批量删除员工，{}",ids);
+
         empService.delete(ids);
+
         return Result.success();
     }
 }
