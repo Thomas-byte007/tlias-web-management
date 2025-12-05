@@ -6,6 +6,7 @@ import com.itheima.pojo.Result;
 import com.itheima.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AdviceModeImportSelector;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,6 +50,25 @@ public class EmpController {
         log.info("添加员工，emp {}",emp);
 
         empService.save(emp);
+
+        return Result.success();
+    }
+
+    @GetMapping("/{id}")
+    public Result getById(Integer id){
+
+        log.info("根据id查询员工：{}",id);
+
+        Emp emp = empService.getById(id);
+
+        return Result.success(emp);
+    }
+
+    @PutMapping
+    public Result update(@RequestBody Emp emp){
+        log.info("更新员工信息，{}",emp);
+
+        empService.update(emp);
 
         return Result.success();
     }
