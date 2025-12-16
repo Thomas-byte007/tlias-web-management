@@ -43,7 +43,7 @@ public class UploadController {
 
     @PostMapping("/upload")
     public Result upload(MultipartFile image) throws IOException {
-        log.info("文件上传，文件名{}",image.getOriginalFilename());
+//        log.info("文件上传，文件名{}",image.getOriginalFile name());
         //调用阿里云OSS工具类进行文件上传
         String url = aliOSSUtils.upload(image);
         log.info("文件上传完成，文件访问的url：{}",url);

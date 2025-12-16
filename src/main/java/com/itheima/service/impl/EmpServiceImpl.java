@@ -71,4 +71,9 @@ public class EmpServiceImpl implements EmpService {
     public void update(Emp emp) {
         empMapper.update(emp);
     }
+
+    @Override
+    public Emp login(Emp emp) {
+        return empMapper.getByUsernameAndPassword(emp);
+    }
 }
